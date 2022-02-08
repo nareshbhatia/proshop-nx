@@ -2,6 +2,7 @@
   "version": 2,
   "projects": {
     "catalog": "apps/catalog",
-    "catalog-e2e": "apps/catalog-e2e"
+    "catalog-e2e": "apps/catalog-e2e",
+    "ui-kit": "libs/ui-kit"
   }
 }
