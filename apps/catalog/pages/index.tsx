@@ -2,6 +2,7 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import { Header } from '@proshop-nx/ui-kit';
+import { ProductCarousel } from '../components/ProductCarousel';
 
 export default function HomePage() {
   return (
@@ -9,7 +10,7 @@ export default function HomePage() {
       <Header />
       <Container maxWidth="xl">
         <Box sx={{ my: 2 }}>
-          Content goes here
+          <ProductCarousel />
         </Box>
       </Container>
     </React.Fragment>
