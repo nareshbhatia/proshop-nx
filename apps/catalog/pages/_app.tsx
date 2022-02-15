@@ -1,10 +1,9 @@
 import { CacheProvider, EmotionCache } from '@emotion/react';
 import CssBaseline from '@mui/material/CssBaseline';
 import { ThemeProvider } from '@mui/material/styles';
+import { createEmotionCache, theme } from '@proshop-nx/ui-kit';
 import { AppProps } from 'next/app';
 import Head from 'next/head';
-import createEmotionCache from '../src/createEmotionCache';
-import theme from '../src/theme';
 
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();

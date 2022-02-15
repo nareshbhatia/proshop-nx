@@ -14,7 +14,7 @@ export function ProductList() {
   return (
     <Grid container spacing={2}>
       {products.map((product) => (
-        <Grid item xs={6} sm={4} md={3} lg={2}>
+        <Grid item key={product.id} xs={6} sm={4} md={3} lg={2}>
           <ProductView key={product.id} product={product} />
         </Grid>
       ))}
