@@ -11,6 +11,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
+import { useRouter } from 'next/router';
 import { DrawerList } from './DrawerList';
 
 const Search = styled('div')(({ theme }) => ({
@@ -55,6 +56,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 export function Header() {
   const [drawerOpen, setDrawerOpen] = React.useState(false);
+  const router = useRouter();
 
   const handleDrawerToggle = () => {
     setDrawerOpen(!drawerOpen);
@@ -78,7 +80,8 @@ export function Header() {
             variant="h6"
             noWrap
             component="div"
-            sx={{ display: { xs: 'none', sm: 'block' } }}
+            sx={{ display: { xs: 'none', sm: 'block', cursor: 'pointer' } }}
+            onClick={() => router.push('/')}
           >
             ProShop
           </Typography>
