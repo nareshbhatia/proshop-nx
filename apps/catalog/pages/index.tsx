@@ -8,11 +8,11 @@ import { CategoryList } from '../components/CategoryList';
 import { ProductCarousel } from '../components/ProductCarousel';
 import { apolloClient } from '../graphql/apolloClient';
 
-export default function HomePage({
-  categories,
-}: {
+interface HomePageProps {
   categories: Array<Category>;
-}) {
+}
+
+export default function HomePage({ categories }: HomePageProps) {
   return (
     <React.Fragment>
       <Header />

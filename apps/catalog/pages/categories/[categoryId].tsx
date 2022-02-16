@@ -9,11 +9,11 @@ import { useRouter } from 'next/router';
 import { ProductList } from '../../components/ProductList';
 import { apolloClient } from '../../graphql/apolloClient';
 
-export default function CategoryPage({
-  products,
-}: {
+interface CategoryPageProps {
   products: Array<Product>;
-}) {
+}
+
+export default function CategoryPage({ products }: CategoryPageProps) {
   const router = useRouter();
   const { categoryId } = router.query;
 

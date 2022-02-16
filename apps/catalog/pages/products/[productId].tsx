@@ -1,24 +1,16 @@
 import * as React from 'react';
+import { gql } from '@apollo/client';
 import Container from '@mui/material/Container';
+import { Product } from '@proshop-nx/domain';
 import { Header } from '@proshop-nx/ui-lib';
-import { useRouter } from 'next/router';
 import { ProductDetail } from '../../components/ProductDetail';
+import { apolloClient } from '../../graphql/apolloClient';
 
-const product = {
-  id: 'apple-imac',
-  name: 'iMac',
-  description:
-    'The 27‑inch iMac is packed with powerful tools and apps that let you take any idea to the next level. Its superfast processors and graphics, massive memory, and all-flash storage can tackle any workload with ease. And with its advanced audio and video capabilities and stunning 5K Retina display, everything you do is larger than life.',
-  manufacturer: 'Apple',
-  price: 1299,
-  photo:
-    'https://firebasestorage.googleapis.com/v0/b/mobx-shop.appspot.com/o/apple-imac.jpg?alt=media&token=69d03695-d57d-4b1a-952c-909a21af9099',
-};
+interface ProductPageProps {
+  product: Product;
+}
 
-export default function ProductPage() {
-  const router = useRouter();
-  const { productId } = router.query;
-
+export default function ProductPage({ product }: ProductPageProps) {
   return (
     <React.Fragment>
       <Header />
@@ -27,4 +19,38 @@ export default function ProductPage() {
       </Container>
     </React.Fragment>
   );
+}
+
+export async function getServerSideProps({ params }) {
+  // From https://nextjs.org/docs/basic-features/data-fetching:
+  //
+  // You should not use fetch() to call an API route in getServerSideProps.
+  // Instead, directly import the logic used inside your API route. You may
+  // need to slightly refactor your code for this approach.
+  //
+  // Fetching from an external API is fine!
+
+  const { data } = await apolloClient.query({
+    query: gql`
+      query GetProduct($productId: ID!) {
+        product(productId: $productId) {
+          id
+          name
+          description
+          manufacturer
+          photo
+          price
+        }
+      }
+    `,
+    variables: {
+      productId: params?.productId,
+    },
+  });
+
+  return {
+    props: {
+      product: data.product,
+    },
+  };
 }
