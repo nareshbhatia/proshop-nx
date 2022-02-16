@@ -1,11 +1,8 @@
 schema: ./apps/proshop-api/src/assets/schema.graphql
-documents: ./src/**/*.graphql
 generates:
-  src/graphql/generated.ts:
+  libs/domain/src/index.ts:
     plugins:
       - typescript
-      - typescript-operations
-      - typed-document-node
     config:
       preResolveTypes: true
     hooks:

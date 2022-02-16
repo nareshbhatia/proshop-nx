@@ -6,7 +6,7 @@
     "start": "nx serve",
     "build": "nx build",
     "test": "nx test",
-    "graphql:codegen": "graphql-codegen --config apps/catalog/codegen.yml"
+    "graphql:codegen": "graphql-codegen --config codegen.yml"
   },
   "private": true,
   "dependencies": {

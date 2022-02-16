@@ -4,10 +4,32 @@ type Category {
   photo: String!
 }
 
+type Product {
+  id: ID!
+  name: String!
+  shortName: String!
+  manufacturer: String!
+  description: String!
+  price: Float!
+  photo: String!
+  category: Category!
+  isFeatured: Boolean!
+  featuredPhoto: String
+}
+
 type Query {
   "returns all the categories"
   categories: [Category!]!
 
   "returns the category with the specified categoryId"
   category(categoryId: ID!): Category
+
+  "returns all the products for the specified categoryId"
+  products(categoryId: ID!): [Product!]!
+
+  "returns all the featured products"
+  featuredProducts: [Product!]!
+
+  "returns the product with the specified productId"
+  product(productId: ID!): Product
 }
