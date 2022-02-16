@@ -37,7 +37,7 @@ export async function getServerSideProps() {
 
   const { data } = await apolloClient.query({
     query: gql`
-      query Categories {
+      query GetCategories {
         categories {
           id
           title

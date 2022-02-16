@@ -1,62 +1,32 @@
 [
   {
-    "id": "breakfast",
-    "title": "Breakfast",
-    "photo": "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e"
+    "id": "clothing",
+    "title": "Clothing",
+    "photo": "https://images.unsplash.com/photo-1619473792839-1d3b0355a7c8?w=800&h=450&fit=crop&crop=entropy"
   },
   {
-    "id": "burger",
-    "title": "Burger",
-    "photo": "https://images.unsplash.com/photo-1551782450-a2132b4ba21d"
+    "id": "shoes",
+    "title": "Shoes",
+    "photo": "https://images.unsplash.com/photo-1531310197839-ccf54634509e?w=800&h=450&fit=crop&crop=entropy"
   },
   {
-    "id": "camera",
-    "title": "Camera",
-    "photo": "https://images.unsplash.com/photo-1522770179533-24471fcdba45"
+    "id": "jewelry",
+    "title": "Jewelry",
+    "photo": "https://images.unsplash.com/photo-1620656798579-1984d9e87df7?w=800&h=450&fit=crop&crop=entropy"
   },
   {
-    "id": "coffee",
-    "title": "Coffee",
-    "photo": "https://images.unsplash.com/photo-1444418776041-9c7e33cc5a9c"
+    "id": "watches",
+    "title": "Watches",
+    "photo": "https://images.unsplash.com/photo-1451290173668-9a14beaf714c?w=800&h=450&fit=crop&crop=entropy"
   },
   {
-    "id": "hats",
-    "title": "Hats",
-    "photo": "https://images.unsplash.com/photo-1533827432537-70133748f5c8"
+    "id": "electronics",
+    "title": "Electronics",
+    "photo": "https://images.unsplash.com/photo-1588459460688-561668329db5?w=800&h=450&fit=crop&crop=entropy"
   },
   {
-    "id": "honey",
-    "title": "Honey",
-    "photo": "https://images.unsplash.com/photo-1558642452-9d2a7deb7f62"
-  },
-  {
-    "id": "basketball",
-    "title": "Basketball",
-    "photo": "https://images.unsplash.com/photo-1516802273409-68526ee1bdd6"
-  },
-  {
-    "id": "fern",
-    "title": "Fern",
-    "photo": "https://images.unsplash.com/photo-1518756131217-31eb79b20e8f"
-  },
-  {
-    "id": "mushrooms",
-    "title": "Mushrooms",
-    "photo": "https://images.unsplash.com/photo-1597645587822-e99fa5d45d25"
-  },
-  {
-    "id": "tomato-basil",
-    "title": "Tomato basil",
-    "photo": "https://images.unsplash.com/photo-1567306301408-9b74779a11af"
-  },
-  {
-    "id": "sea-star",
-    "title": "Sea star",
-    "photo": "https://images.unsplash.com/photo-1471357674240-e1a485acb3e1"
-  },
-  {
-    "id": "bike",
-    "title": "Bike",
-    "photo": "https://images.unsplash.com/photo-1589118949245-7d38baf380d6"
+    "id": "music",
+    "title": "Music",
+    "photo": "https://images.unsplash.com/photo-1587731556938-38755b4803a6?w=800&h=450&fit=crop&crop=entropy"
   }
 ]

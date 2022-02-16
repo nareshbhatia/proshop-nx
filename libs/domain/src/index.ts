@@ -36,7 +36,6 @@ export type Product = {
   name: Scalars['String'];
   photo: Scalars['String'];
   price: Scalars['Float'];
-  shortName: Scalars['String'];
 };
 
 export type Query = {

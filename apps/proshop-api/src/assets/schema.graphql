@@ -6,13 +6,12 @@ type Category {
 
 type Product {
   id: ID!
+  category: Category!
   name: String!
-  shortName: String!
-  manufacturer: String!
   description: String!
+  manufacturer: String!
   price: Float!
   photo: String!
-  category: Category!
   isFeatured: Boolean!
   featuredPhoto: String
 }

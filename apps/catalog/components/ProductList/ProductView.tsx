@@ -12,14 +12,24 @@ export interface ProductViewProps {
 }
 
 export function ProductView({ product }: ProductViewProps) {
-    const router = useRouter();
+  const router = useRouter();
 
-    return (
+  return (
     <Card>
       <CardActionArea onClick={() => router.push(`/products/${product.id}`)}>
-        <CardMedia component="img" alt={product.name} image={product.photo} height={280} />
+        <CardMedia
+          component="img"
+          alt={product.name}
+          image={product.photo}
+          height={280}
+        />
         <CardContent>
-          <Typography variant="h6" component="h3">
+          <Typography
+            variant="h6"
+            component="h3"
+            sx={{ fontSize: '1rem' }}
+            noWrap
+          >
             {product.name}
           </Typography>
           <Typography variant="h5" component="p" color="text.primary">

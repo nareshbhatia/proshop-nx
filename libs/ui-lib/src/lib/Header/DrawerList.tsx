@@ -10,7 +10,14 @@ export function DrawerList() {
     <Box sx={{ width: 250 }} role="presentation">
       <List>
         <ListSubheader>Shop By Department</ListSubheader>
-        {['Clothing', 'Shoes', 'Jewelry', 'Watches'].map((text, index) => (
+        {[
+          'Clothing',
+          'Shoes',
+          'Jewelry',
+          'Watches',
+          'Electronics',
+          'Music',
+        ].map((text) => (
           <ListItem button key={text}>
             <ListItemText primary={text} />
           </ListItem>
