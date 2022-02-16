@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { createEmotionCache, theme } from '@proshop-nx/ui-kit';
+import { createEmotionCache, theme } from '@proshop-nx/ui-lib';
 import Document, { Html, Head, Main, NextScript } from 'next/document';
 import createEmotionServer from '@emotion/server/create-instance';
 

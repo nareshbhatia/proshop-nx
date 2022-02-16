@@ -3,7 +3,7 @@ import { gql } from '@apollo/client';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import { Category } from '@proshop-nx/domain';
-import { Header } from '@proshop-nx/ui-kit';
+import { Header } from '@proshop-nx/ui-lib';
 import { CategoryList } from '../components/CategoryList';
 import { ProductCarousel } from '../components/ProductCarousel';
 import { apolloClient } from '../graphql/apolloClient';

@@ -2,7 +2,7 @@ import { ApolloProvider } from '@apollo/client';
 import { CacheProvider, EmotionCache } from '@emotion/react';
 import CssBaseline from '@mui/material/CssBaseline';
 import { ThemeProvider } from '@mui/material/styles';
-import { createEmotionCache, theme } from '@proshop-nx/ui-kit';
+import { createEmotionCache, theme } from '@proshop-nx/ui-lib';
 import { AppProps } from 'next/app';
 import Head from 'next/head';
 import { apolloClient } from '../graphql/apolloClient';

@@ -2,7 +2,7 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
-import { Header } from '@proshop-nx/ui-kit';
+import { Header } from '@proshop-nx/ui-lib';
 import { useRouter } from 'next/router';
 import { ProductList } from '../../components/ProductList';
 

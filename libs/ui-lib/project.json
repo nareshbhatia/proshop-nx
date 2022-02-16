@@ -1,30 +1,30 @@
 {
-  "root": "libs/ui-kit",
-  "sourceRoot": "libs/ui-kit/src",
+  "root": "libs/ui-lib",
+  "sourceRoot": "libs/ui-lib/src",
   "projectType": "library",
   "targets": {
     "build": {
       "executor": "@nrwl/js:tsc",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/libs/ui-kit",
-        "main": "libs/ui-kit/src/index.ts",
-        "tsConfig": "libs/ui-kit/tsconfig.lib.json",
-        "assets": ["libs/ui-kit/*.md"]
+        "outputPath": "dist/libs/ui-lib",
+        "main": "libs/ui-lib/src/index.ts",
+        "tsConfig": "libs/ui-lib/tsconfig.lib.json",
+        "assets": ["libs/ui-lib/*.md"]
       }
     },
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["libs/ui-kit/**/*.ts"]
+        "lintFilePatterns": ["libs/ui-lib/**/*.ts"]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/ui-kit"],
+      "outputs": ["coverage/libs/ui-lib"],
       "options": {
-        "jestConfig": "libs/ui-kit/jest.config.js",
+        "jestConfig": "libs/ui-lib/jest.config.js",
         "passWithNoTests": true
       }
     }

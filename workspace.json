@@ -5,6 +5,6 @@
     "catalog-e2e": "apps/catalog-e2e",
     "domain": "libs/domain",
     "proshop-api": "apps/proshop-api",
-    "ui-kit": "libs/ui-kit"
+    "ui-lib": "libs/ui-lib"
   }
 }

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import Container from '@mui/material/Container';
-import { Header } from '@proshop-nx/ui-kit';
+import { Header } from '@proshop-nx/ui-lib';
 import { useRouter } from 'next/router';
 import { ProductDetail } from '../../components/ProductDetail';
 
