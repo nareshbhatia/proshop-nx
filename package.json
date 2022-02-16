@@ -5,10 +5,12 @@
   "scripts": {
     "start": "nx serve",
     "build": "nx build",
-    "test": "nx test"
+    "test": "nx test",
+    "graphql:codegen": "graphql-codegen --config apps/catalog/codegen.yml"
   },
   "private": true,
   "dependencies": {
+    "@apollo/client": "^3.5.9",
     "@emotion/cache": "^11.7.1",
     "@emotion/react": "^11.7.1",
     "@emotion/server": "^11.4.0",
@@ -16,7 +18,9 @@
     "@mui/icons-material": "^5.4.1",
     "@mui/material": "^5.4.1",
     "@nrwl/next": "13.7.3",
+    "apollo-server": "^3.6.3",
     "core-js": "^3.21.0",
+    "graphql": "^16.3.0",
     "next": "12.0.10",
     "react": "17.0.2",
     "react-dom": "17.0.2",
@@ -24,11 +28,16 @@
     "tslib": "^2.3.1"
   },
   "devDependencies": {
+    "@graphql-codegen/cli": "^2.6.1",
+    "@graphql-codegen/typed-document-node": "^2.2.3",
+    "@graphql-codegen/typescript": "^2.4.3",
+    "@graphql-codegen/typescript-operations": "^2.3.0",
     "@nrwl/cli": "13.7.3",
     "@nrwl/cypress": "13.7.3",
     "@nrwl/eslint-plugin-nx": "13.7.3",
     "@nrwl/jest": "13.7.3",
     "@nrwl/linter": "13.7.3",
+    "@nrwl/node": "^13.8.1",
     "@nrwl/react": "13.7.3",
     "@nrwl/tao": "13.7.3",
     "@nrwl/web": "13.7.3",

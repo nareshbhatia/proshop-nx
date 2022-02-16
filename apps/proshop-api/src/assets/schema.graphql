@@ -1,0 +1,13 @@
+type Category {
+  id: ID!
+  title: String!
+  photo: String!
+}
+
+type Query {
+  "returns all the categories"
+  categories: [Category!]!
+
+  "returns the category with the specified categoryId"
+  category(categoryId: ID!): Category
+}
