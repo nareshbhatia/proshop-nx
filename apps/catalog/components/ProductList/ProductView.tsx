@@ -6,6 +6,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { useRouter } from 'next/router';
 import { Product } from '@proshop-nx/domain';
+import { NumberUtils } from '@react-force/number-utils';
 
 export interface ProductViewProps {
   product: Product;
@@ -32,8 +33,8 @@ export function ProductView({ product }: ProductViewProps) {
           >
             {product.name}
           </Typography>
-          <Typography variant="h5" component="p" color="text.primary">
-            {product.price}
+          <Typography variant="h6" component="p" color="text.primary">
+            ${NumberUtils.formatAsMoney(product.price)}
           </Typography>
         </CardContent>
       </CardActionArea>

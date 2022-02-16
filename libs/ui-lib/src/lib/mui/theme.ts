@@ -14,4 +14,13 @@ export const theme = createTheme({
       main: red.A400,
     },
   },
+  components: {
+    MuiImageListItemBar: {
+      styleOverrides: {
+        title: {
+          fontSize: '1.25rem',
+        },
+      },
+    },
+  },
 });

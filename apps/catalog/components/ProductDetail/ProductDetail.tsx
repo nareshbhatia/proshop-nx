@@ -3,6 +3,7 @@ import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import { Product } from '@proshop-nx/domain';
+import { NumberUtils } from '@react-force/number-utils';
 
 export interface ProductDetailProps {
   product: Product;
@@ -30,12 +31,14 @@ export function ProductDetail({ product }: ProductDetailProps) {
                 Price:
               </Typography>
               &nbsp;
-              <Typography variant="h5" component="p" color="text.primary">
-                {product.price}
+              <Typography variant="h6" component="p" color="text.primary">
+                ${NumberUtils.formatAsMoney(product.price)}
               </Typography>
             </Box>
           </Box>
-          <Button variant="contained" color="secondary" sx={{ height: 36 }}>Add to Cart</Button>
+          <Button variant="contained" color="secondary" sx={{ height: 36 }}>
+            Add to Cart
+          </Button>
         </Box>
         <Typography variant="body1" component="p">
           {product.description}
