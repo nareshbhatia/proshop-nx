@@ -4,6 +4,7 @@
         "codegen",
         "datasource",
         "datasources",
+        "frontends",
         "nrwl",
         "proshop",
         "typedefs"
