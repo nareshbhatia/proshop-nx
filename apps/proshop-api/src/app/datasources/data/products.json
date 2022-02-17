@@ -1,5 +1,275 @@
 [
   {
+    "id": "grace-karnes-womens-casual-pants",
+    "categoryId": "clothing",
+    "name": "Grace Karnes Womens Casual Pants",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    "manufacturer": "Grace Karnes",
+    "price": 45.68,
+    "photo": "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=800&h=450&fit=crop&crop=entropy",
+    "isFeatured": false
+  },
+  {
+    "id": "vito-Willy-mens-polo-shirt",
+    "categoryId": "clothing",
+    "name": "Vito & Willy Mens Polo Shirt",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    "manufacturer": "Vito & Willy",
+    "price": 25.74,
+    "photo": "https://images.unsplash.com/photo-1586363090844-099253d6a1cb?w=800&h=450&fit=crop&crop=entropy",
+    "isFeatured": false
+  },
+  {
+    "id": "levis-mens-jacket",
+    "categoryId": "clothing",
+    "name": "Levi's Men's Jacket",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    "manufacturer": "Levi's",
+    "price": 48.99,
+    "photo": "https://images.unsplash.com/photo-1613869810108-70f9fe0cdef5?w=800&h=450&fit=crop&crop=entropy",
+    "isFeatured": false
+  },
+  {
+    "id": "levis-womens-denim-shirt",
+    "categoryId": "clothing",
+    "name": "Levi's Women's Denim Shirt",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    "manufacturer": "Levi's",
+    "price": 35.98,
+    "photo": "https://images.unsplash.com/photo-1610659775956-308c9951bca9?w=800&h=450&fit=crop&crop=entropy",
+    "isFeatured": false
+  },
+  {
+    "id": "levis-mens-denim-shirt",
+    "categoryId": "clothing",
+    "name": "Levi's Men's Denim Shirt",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    "manufacturer": "Levi's",
+    "price": 35.98,
+    "photo": "https://images.unsplash.com/photo-1573662073208-1f58a071c756?w=800&h=450&fit=crop&crop=entropy",
+    "isFeatured": false
+  },
+  {
+    "id": "levis-womens-denim-jumper",
+    "categoryId": "clothing",
+    "name": "Levi's Women's Denim Jumper",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    "manufacturer": "Levi's",
+    "price": 65.81,
+    "photo": "https://images.unsplash.com/photo-1609324120004-364275e0ad05?w=800&h=450&fit=crop&crop=entropy",
+    "isFeatured": false
+  },
+  {
+    "id": "nike-air",
+    "categoryId": "shoes",
+    "name": "Nike Air",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    "manufacturer": "Nike",
+    "price": 75.99,
+    "photo": "https://images.unsplash.com/photo-1543508282-5c1f427f023f?w=800&h=450&fit=crop&crop=entropy",
+    "isFeatured": false
+  },
+  {
+    "id": "nike-ktyc",
+    "categoryId": "shoes",
+    "name": "Nike KTYC",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    "manufacturer": "Nike",
+    "price": 88.3,
+    "photo": "https://images.unsplash.com/photo-1584386450584-c6d766612a45?w=800&h=450&fit=crop&crop=entropy",
+    "isFeatured": false
+  },
+  {
+    "id": "nike-x-90",
+    "categoryId": "shoes",
+    "name": "Nike X-90",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    "manufacturer": "Nike",
+    "price": 55.7,
+    "photo": "https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?w=800&h=450&fit=crop&crop=entropy",
+    "isFeatured": false
+  },
+  {
+    "id": "pink-flamenco",
+    "categoryId": "shoes",
+    "name": "Pink Flamenco",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    "manufacturer": "Flamenco Shoes",
+    "price": 125.99,
+    "photo": "https://images.unsplash.com/photo-1499013819532-e4ff41b00669?w=800&h=450&fit=crop&crop=entropy",
+    "isFeatured": false
+  },
+  {
+    "id": "adidas-stan-smith",
+    "categoryId": "shoes",
+    "name": "Adidas Stan Smith",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    "manufacturer": "Adidas",
+    "price": 64.37,
+    "photo": "https://images.unsplash.com/photo-1583492265212-d6c55d18a0c0?w=800&h=450&fit=crop&crop=entropy",
+    "isFeatured": false
+  },
+  {
+    "id": "adidas-ultra-boost",
+    "categoryId": "shoes",
+    "name": "Adidas Ultra Boost",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    "manufacturer": "Adidas",
+    "price": 50.99,
+    "photo": "https://images.unsplash.com/photo-1523314399-837f3e0c291b?w=800&h=450&fit=crop&crop=entropy",
+    "isFeatured": false
+  },
+  {
+    "id": "gold-flower-pendant",
+    "categoryId": "jewelry",
+    "name": "Gold Flower Pendant",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    "manufacturer": "Maria Lucia",
+    "price": 150,
+    "photo": "https://images.unsplash.com/photo-1620656798579-1984d9e87df7?w=800&h=450&fit=crop&crop=entropy",
+    "isFeatured": false
+  },
+  {
+    "id": "diamond-pendant",
+    "categoryId": "jewelry",
+    "name": "Diamond Pendant",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    "manufacturer": "Maria Lucia",
+    "price": 399,
+    "photo": "https://images.unsplash.com/photo-1589128530087-c6f0ce071eea?w=800&h=450&fit=crop&crop=entropy",
+    "isFeatured": false
+  },
+  {
+    "id": "square-pendant-with-silver-chain",
+    "categoryId": "jewelry",
+    "name": "Square Pendant with Silver Chain",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    "manufacturer": "Maria Lucia",
+    "price": 250,
+    "photo": "https://images.unsplash.com/photo-1588444968576-f8fe92ce56fd?w=800&h=450&fit=crop&crop=entropy",
+    "isFeatured": false
+  },
+  {
+    "id": "egyptian-bronze-necklace",
+    "categoryId": "jewelry",
+    "name": "Egyptian Bronze Necklace",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    "manufacturer": "Maria Lucia",
+    "price": 450,
+    "photo": "https://images.unsplash.com/photo-1620441090373-f6977a23fa0b?w=800&h=450&fit=crop&crop=entropy",
+    "isFeatured": false
+  },
+  {
+    "id": "his-and-her-wedding-bands",
+    "categoryId": "jewelry",
+    "name": "His & Her Wedding Bands",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    "manufacturer": "Maria Lucia",
+    "price": 325,
+    "photo": "https://images.unsplash.com/photo-1529634597503-139d3726fed5?w=800&h=450&fit=crop&crop=entropy",
+    "isFeatured": false
+  },
+  {
+    "id": "sappire-ring",
+    "categoryId": "jewelry",
+    "name": "Sappire Ring",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    "manufacturer": "Maria Lucia",
+    "price": 490,
+    "photo": "https://images.unsplash.com/photo-1586104237516-5b7075e00d45?w=800&h=450&fit=crop&crop=entropy",
+    "isFeatured": false
+  },
+  {
+    "id": "gold-ring-with-diamond",
+    "categoryId": "jewelry",
+    "name": "Gold Ring with Diamond",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    "manufacturer": "Maria Lucia",
+    "price": 750,
+    "photo": "https://images.unsplash.com/photo-1567523977592-7959bc5df51e?w=800&h=450&fit=crop&crop=entropy",
+    "isFeatured": false
+  },
+  {
+    "id": "blue-stone-and-diamond-rings",
+    "categoryId": "jewelry",
+    "name": "Blue Stone & Diamond Rings",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    "manufacturer": "Maria Lucia",
+    "price": 700,
+    "photo": "https://images.unsplash.com/photo-1543295204-2ae345412549?w=800&h=450&fit=crop&crop=entropy",
+    "isFeatured": false
+  },
+  {
+    "id": "gold-tiara",
+    "categoryId": "jewelry",
+    "name": "Gold Tiara",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    "manufacturer": "Maria Lucia",
+    "price": 999,
+    "photo": "https://images.unsplash.com/photo-1588163307392-ce5223f593d0?w=800&h=450&fit=crop&crop=entropy",
+    "isFeatured": false
+  },
+  {
+    "id": "pierre-ricaud-watch",
+    "categoryId": "watches",
+    "name": "Pierre Ricaud",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    "manufacturer": "Pierre Ricaud",
+    "price": 999,
+    "photo": "https://images.unsplash.com/photo-1451290173668-9a14beaf714c?w=800&h=450&fit=crop&crop=entropy",
+    "isFeatured": false
+  },
+  {
+    "id": "breitling-1884-chronometer",
+    "categoryId": "watches",
+    "name": "Breitling 1884 Chronometer",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    "manufacturer": "Breitling",
+    "price": 1024,
+    "photo": "https://images.unsplash.com/photo-1548171838-1fd4cb4ab854?w=800&h=450&fit=crop&crop=entropy",
+    "isFeatured": false
+  },
+  {
+    "id": "fossil-10-atm",
+    "categoryId": "watches",
+    "name": "Fossil 10 ATM",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    "manufacturer": "Fossil",
+    "price": 300,
+    "photo": "https://images.unsplash.com/photo-1542496658-e33a6d0d50f6?w=800&h=450&fit=crop&crop=entropy",
+    "isFeatured": false
+  },
+  {
+    "id": "empro-armai-watch",
+    "categoryId": "watches",
+    "name": "Empro Armai",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    "manufacturer": "Empro Armai",
+    "price": 1,
+    "photo": "https://images.unsplash.com/photo-1624106159879-8a16d53c54ff?w=800&h=450&fit=crop&crop=entropy",
+    "isFeatured": false
+  },
+  {
+    "id": "rolex-air-king",
+    "categoryId": "watches",
+    "name": "Rolex Air-King",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    "manufacturer": "Rolex",
+    "price": 5000,
+    "photo": "https://images.unsplash.com/photo-1547996160-81dfa63595aa?w=800&h=450&fit=crop&crop=entropy",
+    "isFeatured": false
+  },
+  {
+    "id": "festina-watch",
+    "categoryId": "watches",
+    "name": "Festina",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    "manufacturer": "Festina",
+    "price": 300,
+    "photo": "https://images.unsplash.com/photo-1533139502658-0198f920d8e8?w=800&h=450&fit=crop&crop=entropy",
+    "isFeatured": false
+  },
+  {
     "id": "apple-imac",
     "categoryId": "electronics",
     "name": "iMac",
