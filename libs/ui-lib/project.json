@@ -2,22 +2,13 @@
   "root": "libs/ui-lib",
   "sourceRoot": "libs/ui-lib/src",
   "projectType": "library",
+  "tags": [],
   "targets": {
-    "build": {
-      "executor": "@nrwl/js:tsc",
-      "outputs": ["{options.outputPath}"],
-      "options": {
-        "outputPath": "dist/libs/ui-lib",
-        "main": "libs/ui-lib/src/index.ts",
-        "tsConfig": "libs/ui-lib/tsconfig.lib.json",
-        "assets": ["libs/ui-lib/*.md"]
-      }
-    },
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["libs/ui-lib/**/*.ts"]
+        "lintFilePatterns": ["libs/ui-lib/**/*.{ts,tsx,js,jsx}"]
       }
     },
     "test": {
@@ -28,6 +19,5 @@
         "passWithNoTests": true
       }
     }
-  },
-  "tags": []
+  }
 }
