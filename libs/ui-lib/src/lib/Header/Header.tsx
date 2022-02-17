@@ -1,17 +1,16 @@
 import * as React from 'react';
 import { styled, alpha } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
-import Badge from '@mui/material/Badge';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
 import InputBase from '@mui/material/InputBase';
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import { useRouter } from 'next/router';
+import { CartCount } from './CartCount';
 import { DrawerList } from './DrawerList';
 
 const Search = styled('div')(({ theme }) => ({
@@ -95,15 +94,7 @@ export function Header() {
             />
           </Search>
           <Box sx={{ flexGrow: 1 }} />
-          <IconButton
-            size="large"
-            aria-label="show 4 new notifications"
-            color="inherit"
-          >
-            <Badge badgeContent={4} color="error">
-              <ShoppingCartIcon />
-            </Badge>
-          </IconButton>
+          <CartCount />
         </Toolbar>
       </AppBar>
       <Drawer open={drawerOpen} onClose={handleDrawerToggle}>

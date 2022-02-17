@@ -23,7 +23,9 @@ export const resolvers = {
     cart(parent, args, { dataSources }) {
       return dataSources.cartService.getCart();
     },
+  },
 
+  Mutation: {
     addProductToCart(parent, { productId }, { dataSources }) {
       return dataSources.cartService.addProductToCart(productId);
     },

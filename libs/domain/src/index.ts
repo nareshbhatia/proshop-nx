@@ -20,6 +20,7 @@ export type Scalars = {
 
 export type Cart = {
   __typename?: 'Cart';
+  id: Scalars['ID'];
   items: Array<OrderItem>;
   totalPrice: Scalars['Float'];
   totalQuantity: Scalars['Int'];
@@ -30,6 +31,29 @@ export type Category = {
   id: Scalars['ID'];
   photo: Scalars['String'];
   title: Scalars['String'];
+};
+
+export type Mutation = {
+  __typename?: 'Mutation';
+  /** adds a product to the cart */
+  addProductToCart: Cart;
+  /** deletes a product from the cart */
+  deleteProductFromCart: Cart;
+  /** updates the quantity of a product in the cart */
+  updateProductQuantityInCart: Cart;
+};
+
+export type MutationAddProductToCartArgs = {
+  productId: Scalars['ID'];
+};
+
+export type MutationDeleteProductFromCartArgs = {
+  productId: Scalars['ID'];
+};
+
+export type MutationUpdateProductQuantityInCartArgs = {
+  productId: Scalars['ID'];
+  quantity: Scalars['Int'];
 };
 
 export type OrderItem = {
@@ -55,36 +79,22 @@ export type Product = {
 
 export type Query = {
   __typename?: 'Query';
-  /** adds a product to the cart */
-  addProductToCart: Cart;
   /** returns my cart */
   cart: Cart;
   /** returns all the categories */
   categories: Array<Category>;
   /** returns the category with the specified categoryId */
   category: Category;
-  /** deletes a product from the cart */
-  deleteProductFromCart: Cart;
   /** returns all the featured products */
   featuredProducts: Array<Product>;
   /** returns the product with the specified productId */
   product: Product;
   /** returns all the products for the specified categoryId */
   products: Array<Product>;
-  /** updates the quantity of a product in the cart */
-  updateProductQuantityInCart: Cart;
-};
-
-export type QueryAddProductToCartArgs = {
-  productId: Scalars['ID'];
 };
 
 export type QueryCategoryArgs = {
   categoryId: Scalars['ID'];
-};
-
-export type QueryDeleteProductFromCartArgs = {
-  productId: Scalars['ID'];
 };
 
 export type QueryProductArgs = {
@@ -93,9 +103,4 @@ export type QueryProductArgs = {
 
 export type QueryProductsArgs = {
   categoryId: Scalars['ID'];
-};
-
-export type QueryUpdateProductQuantityInCartArgs = {
-  productId: Scalars['ID'];
-  quantity: Scalars['Int'];
 };

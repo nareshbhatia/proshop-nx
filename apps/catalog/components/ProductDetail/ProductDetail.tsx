@@ -1,3 +1,4 @@
+import { gql, useMutation } from '@apollo/client';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
@@ -5,11 +6,30 @@ import Typography from '@mui/material/Typography';
 import { Product } from '@proshop-nx/domain';
 import { NumberUtils } from '@react-force/number-utils';
 
+const AddProductToCart = gql`
+  mutation AddProductToCart($productId: ID!) {
+    addProductToCart(productId: $productId) {
+      id
+      totalQuantity
+    }
+  }
+`;
+
 export interface ProductDetailProps {
   product: Product;
 }
 
 export function ProductDetail({ product }: ProductDetailProps) {
+  const [addProduct, { loading }] = useMutation(AddProductToCart);
+
+  const handleAddToCart = () => {
+    addProduct({
+      variables: {
+        productId: product.id,
+      },
+    });
+  };
+
   return (
     <Grid container spacing={4}>
       <Grid item xs={12} sm={6}>
@@ -36,7 +56,13 @@ export function ProductDetail({ product }: ProductDetailProps) {
               </Typography>
             </Box>
           </Box>
-          <Button variant="contained" color="secondary" sx={{ height: 36 }}>
+          <Button
+            variant="contained"
+            color="secondary"
+            sx={{ height: 36 }}
+            disabled={loading}
+            onClick={handleAddToCart}
+          >
             Add to Cart
           </Button>
         </Box>

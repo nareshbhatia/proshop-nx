@@ -2,6 +2,7 @@ import { DataSource } from 'apollo-datasource';
 import { v4 as uuidv4 } from 'uuid';
 import products from './data/products.json';
 
+const CART_ID = 1234;
 const cartItems = [];
 
 function findProduct(productId: string) {
@@ -24,7 +25,7 @@ export class CartService extends DataSource {
   initialize() {}
 
   getCart() {
-    return { items: cartItems };
+    return { id: CART_ID, items: cartItems };
   }
 
   totalPrice() {
@@ -52,7 +53,7 @@ export class CartService extends DataSource {
         quantity: 1,
       });
     }
-    return { items: cartItems };
+    return { id: CART_ID, items: cartItems };
   }
 
   deleteProductFromCart(productId: string) {
@@ -60,7 +61,7 @@ export class CartService extends DataSource {
     if (index >= 0) {
       cartItems.splice(index, 1);
     }
-    return { items: cartItems };
+    return { id: CART_ID, items: cartItems };
   }
 
   updateProductQuantityInCart(productId: string, quantity: number) {
@@ -68,6 +69,6 @@ export class CartService extends DataSource {
     if (existingItem) {
       existingItem.quantity = quantity;
     }
-    return { items: cartItems };
+    return { id: CART_ID, items: cartItems };
   }
 }

@@ -24,6 +24,7 @@ type OrderItem {
 }
 
 type Cart {
+  id: ID!
   items: [OrderItem!]!
   totalPrice: Float!
   totalQuantity: Int!
@@ -47,7 +48,9 @@ type Query {
 
   "returns my cart"
   cart: Cart!
+}
 
+type Mutation {
   "adds a product to the cart"
   addProductToCart(productId: ID!): Cart!
 
