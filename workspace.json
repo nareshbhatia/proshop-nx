@@ -1,6 +1,8 @@
 {
   "version": 2,
   "projects": {
+    "cart": "apps/cart",
+    "cart-e2e": "apps/cart-e2e",
     "catalog": "apps/catalog",
     "catalog-e2e": "apps/catalog-e2e",
     "domain": "libs/domain",
