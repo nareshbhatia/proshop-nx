@@ -16,12 +16,25 @@ type Product {
   featuredPhoto: String
 }
 
+type OrderItem {
+  id: ID!
+  product: Product!
+  price: Float!
+  quantity: Int!
+}
+
+type Cart {
+  items: [OrderItem!]!
+  totalPrice: Float!
+  totalQuantity: Int!
+}
+
 type Query {
   "returns all the categories"
   categories: [Category!]!
 
   "returns the category with the specified categoryId"
-  category(categoryId: ID!): Category
+  category(categoryId: ID!): Category!
 
   "returns all the products for the specified categoryId"
   products(categoryId: ID!): [Product!]!
@@ -30,5 +43,17 @@ type Query {
   featuredProducts: [Product!]!
 
   "returns the product with the specified productId"
-  product(productId: ID!): Product
+  product(productId: ID!): Product!
+
+  "returns my cart"
+  cart: Cart!
+
+  "adds a product to the cart"
+  addProductToCart(productId: ID!): Cart!
+
+  "deletes a product from the cart"
+  deleteProductFromCart(productId: ID!): Cart!
+
+  "updates the quantity of a product in the cart"
+  updateProductQuantityInCart(productId: ID!, quantity: Int!): Cart!
 }
