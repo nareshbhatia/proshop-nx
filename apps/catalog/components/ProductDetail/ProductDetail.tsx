@@ -51,7 +51,7 @@ export function ProductDetail({ product }: ProductDetailProps) {
                 Price:
               </Typography>
               &nbsp;
-              <Typography variant="h6" component="p" color="text.primary">
+              <Typography variant="h6" component="p">
                 ${NumberUtils.formatAsMoney(product.price)}
               </Typography>
             </Box>

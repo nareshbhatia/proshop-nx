@@ -5,6 +5,7 @@ import Container from '@mui/material/Container';
 import { Cart } from '@proshop-nx/domain';
 import { Header } from '@proshop-nx/ui-lib';
 import { apolloClient } from '../graphql/apolloClient';
+import { CartView } from '../components/CartView';
 
 interface HomePageProps {
   cart: Cart;
@@ -15,7 +16,9 @@ export default function HomePage({ cart }: HomePageProps) {
     <React.Fragment>
       <Header />
       <Container maxWidth="xl">
-        <Box sx={{ my: 2 }}>Cart Count: {cart.totalQuantity.toString()}</Box>
+        <Box sx={{ my: 2 }}>
+          <CartView cart={cart} />
+        </Box>
       </Container>
     </React.Fragment>
   );
