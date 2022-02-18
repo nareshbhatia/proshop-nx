@@ -22,8 +22,8 @@ export interface ProductDetailProps {
 export function ProductDetail({ product }: ProductDetailProps) {
   const [addProduct, { loading }] = useMutation(AddProductToCart);
 
-  const handleAddToCart = () => {
-    addProduct({
+  const handleAddToCart = async () => {
+    await addProduct({
       variables: {
         productId: product.id,
       },
