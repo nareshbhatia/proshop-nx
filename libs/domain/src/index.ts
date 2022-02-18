@@ -39,6 +39,8 @@ export type Mutation = {
   addProductToCart: Cart;
   /** deletes a product from the cart */
   deleteProductFromCart: Cart;
+  /** places an order from the cart and empties the cart */
+  placeOrderFromCart: Order;
   /** updates the quantity of a product in the cart */
   updateProductQuantityInCart: Cart;
 };
@@ -54,6 +56,15 @@ export type MutationDeleteProductFromCartArgs = {
 export type MutationUpdateProductQuantityInCartArgs = {
   productId: Scalars['ID'];
   quantity: Scalars['Int'];
+};
+
+export type Order = {
+  __typename?: 'Order';
+  createdAt: Scalars['String'];
+  id: Scalars['ID'];
+  items: Array<OrderItem>;
+  totalPrice: Scalars['Float'];
+  totalQuantity: Scalars['Int'];
 };
 
 export type OrderItem = {
@@ -87,6 +98,8 @@ export type Query = {
   category: Category;
   /** returns all the featured products */
   featuredProducts: Array<Product>;
+  /** returns my orders */
+  orders: Array<Order>;
   /** returns the product with the specified productId */
   product: Product;
   /** returns all the products for the specified categoryId */

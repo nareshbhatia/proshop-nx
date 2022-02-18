@@ -30,6 +30,14 @@ type Cart {
   totalQuantity: Int!
 }
 
+type Order {
+  id: ID!
+  createdAt: String!
+  items: [OrderItem!]!
+  totalPrice: Float!
+  totalQuantity: Int!
+}
+
 type Query {
   "returns all the categories"
   categories: [Category!]!
@@ -48,6 +56,9 @@ type Query {
 
   "returns my cart"
   cart: Cart!
+
+  "returns my orders"
+  orders: [Order!]!
 }
 
 type Mutation {
@@ -59,4 +70,7 @@ type Mutation {
 
   "updates the quantity of a product in the cart"
   updateProductQuantityInCart(productId: ID!, quantity: Int!): Cart!
+
+  "places an order from the cart and empties the cart"
+  placeOrderFromCart: Order!
 }

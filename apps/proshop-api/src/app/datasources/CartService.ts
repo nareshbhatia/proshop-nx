@@ -1,3 +1,4 @@
+import { Order } from '@proshop-nx/domain';
 import { DataSource } from 'apollo-datasource';
 import { v4 as uuidv4 } from 'uuid';
 import products from './data/products.json';
@@ -70,5 +71,19 @@ export class CartService extends DataSource {
       existingItem.quantity = quantity;
     }
     return { id: CART_ID, items: cartItems };
+  }
+
+  clearCart() {
+    cartItems.length = 0;
+  }
+
+  createOrderFromCart(): Order {
+    return {
+      id: uuidv4(),
+      createdAt: new Date().toISOString(),
+      items: cartItems.map((item) => ({ ...item })), // shallow copy
+      totalPrice: this.totalPrice(),
+      totalQuantity: this.totalQuantity(),
+    };
   }
 }

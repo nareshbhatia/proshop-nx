@@ -23,6 +23,10 @@ export const resolvers = {
     cart(parent, args, { dataSources }) {
       return dataSources.cartService.getCart();
     },
+
+    orders(parent, args, { dataSources }) {
+      return dataSources.orderService.getOrders();
+    },
   },
 
   Mutation: {
@@ -40,6 +44,13 @@ export const resolvers = {
         productId,
         quantity
       );
+    },
+
+    placeOrderFromCart(parent, args, { dataSources }) {
+      const order = dataSources.cartService.createOrderFromCart();
+      dataSources.cartService.clearCart();
+      dataSources.orderService.addOrder(order);
+      return order;
     },
   },
 
