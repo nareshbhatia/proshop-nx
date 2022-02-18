@@ -43,6 +43,8 @@ export async function getServerSideProps() {
             product {
               name
             }
+            price
+            quantity
           }
           totalPrice
           totalQuantity
