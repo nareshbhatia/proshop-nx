@@ -41,7 +41,9 @@ export async function getServerSideProps() {
           items {
             id
             product {
+              id
               name
+              photo
             }
             price
             quantity
