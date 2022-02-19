@@ -10,7 +10,10 @@ const List = styled('ul')({
 });
 
 const ListItem = styled('li')(({ theme }) => ({
-  paddingTop: theme.spacing(2),
+  paddingTop: theme.spacing(6),
+  '&:first-of-type': {
+    paddingTop: theme.spacing(2),
+  },
 }));
 
 export interface FilledCartViewProps {

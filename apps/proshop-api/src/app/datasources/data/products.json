@@ -215,7 +215,7 @@
     "name": "Pierre Ricaud",
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
     "manufacturer": "Pierre Ricaud",
-    "price": 999,
+    "price": 1000,
     "photo": "https://images.unsplash.com/photo-1451290173668-9a14beaf714c?w=800&h=450&fit=crop&crop=entropy",
     "isFeatured": false
   },
@@ -225,7 +225,7 @@
     "name": "Breitling 1884 Chronometer",
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
     "manufacturer": "Breitling",
-    "price": 1024,
+    "price": 1000,
     "photo": "https://images.unsplash.com/photo-1548171838-1fd4cb4ab854?w=800&h=450&fit=crop&crop=entropy",
     "isFeatured": false
   },
@@ -245,7 +245,7 @@
     "name": "Empro Armai",
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
     "manufacturer": "Empro Armai",
-    "price": 1,
+    "price": 100,
     "photo": "https://images.unsplash.com/photo-1624106159879-8a16d53c54ff?w=800&h=450&fit=crop&crop=entropy",
     "isFeatured": false
   },

@@ -31,7 +31,7 @@ export class CartService extends DataSource {
 
   totalPrice() {
     return cartItems.reduce((accumulator, item) => {
-      return accumulator + item.price * item.quantity;
+      return accumulator + item.price;
     }, 0);
   }
 
@@ -46,6 +46,7 @@ export class CartService extends DataSource {
     const existingItem = findItem(productId);
     if (existingItem) {
       existingItem.quantity++;
+      existingItem.price = existingItem.quantity * price;
     } else {
       cartItems.push({
         id: uuidv4(),
@@ -66,9 +67,11 @@ export class CartService extends DataSource {
   }
 
   updateProductQuantityInCart(productId: string, quantity: number) {
+    const { price } = findProduct(productId);
     const existingItem = findItem(productId);
     if (existingItem) {
       existingItem.quantity = quantity;
+      existingItem.price = existingItem.quantity * price;
     }
     return { id: CART_ID, items: cartItems };
   }
