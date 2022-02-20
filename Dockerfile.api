@@ -8,5 +8,8 @@ RUN npm install
 
 RUN nx build proshop-api --configuration=production
 
-EXPOSE 3333
-CMD [ "node", "dist/proshop-api/main.js" ]
+# Overrides hard-coded port 3333 in code
+ENV PORT 8080
+EXPOSE ${PORT}
+
+CMD [ "node", "dist/apps/proshop-api/main.js" ]

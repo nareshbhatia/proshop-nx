@@ -78,7 +78,7 @@ docker build -f Dockerfile.api -t nareshbhatia/proshop-api:1.0.0 .
 docker images -a
 
 # Run the images locally to make sure everything works
-docker run -d --rm --name proshop-api -p 3333:3333 nareshbhatia/proshop-api:1.0.0
+docker run -d --rm --name proshop-api -p 8080:8080 nareshbhatia/proshop-api:1.0.0
 
 # Push the images to Docker Hub
 docker login -u nareshbhatia --password-stdin
