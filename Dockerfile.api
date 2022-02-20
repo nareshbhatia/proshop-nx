@@ -1,0 +1,12 @@
+FROM node:16.14.0-alpine
+
+WORKDIR /app
+COPY . .
+
+RUN npm install -g nx
+RUN npm install
+
+RUN nx build proshop-api --configuration=production
+
+EXPOSE 3333
+CMD [ "node", "dist/proshop-api/main.js" ]

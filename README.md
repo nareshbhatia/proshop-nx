@@ -61,6 +61,30 @@ Then run the app in production mode:
 nx run-many --target=serve --all --configuration=production
 ```
 
+## Building Docker images
+
+Docker build should be done in a freshly cloned repo to avoid copying of `dist`,
+`node_modules` etc.
+
+```sh
+# Clone a fresh copy of the repo
+git clone https://github.com/nareshbhatia/proshop-nx.git proshop-nx-docker
+cd proshop-nx-docker
+
+# Build docker images
+docker build -f Dockerfile.api -t nareshbhatia/proshop-api:1.0.0 .
+
+# Verify that the images were created on the local machine
+docker images -a
+
+# Run the images locally to make sure everything works
+docker run -d --rm --name proshop-api -p 3333:3333 nareshbhatia/proshop-api:1.0.0
+
+# Push the images to Docker Hub
+docker login -u nareshbhatia --password-stdin
+docker push nareshbhatia/proshop-api
+```
+
 ## Help
 
 Visit the [Nx Documentation](https://nx.dev) to learn more.
