@@ -128,9 +128,9 @@ docker run -d --rm --name cart -p 4201:4201 -e NX_API_URL=http://192.168.86.247:
 
 # Push the images to Docker Hub
 docker login -u nareshbhatia --password-stdin
-docker push nareshbhatia/proshop-api
-docker push nareshbhatia/catalog
-docker push nareshbhatia/cart
+docker push nareshbhatia/proshop-api:1.0.0
+docker push nareshbhatia/catalog:1.0.0
+docker push nareshbhatia/cart:1.0.0
 ```
 
 ## Help
