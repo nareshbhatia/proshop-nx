@@ -4,7 +4,7 @@ import { ApolloServer } from 'apollo-server';
 import { dataSources } from './app/datasources';
 import { resolvers } from './app/resolvers';
 
-const port = parseInt(process.env.PORT, 10) || 3333;
+const port = parseInt(process.env.NX_API_PORT, 10);
 
 async function startApolloServer() {
   // read the schema (convert the file Buffer to a UTF-8 string)

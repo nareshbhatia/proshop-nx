@@ -1,0 +1,14 @@
+FROM node:16.14.0-alpine
+
+ENV NX_API_URL http://localhost:8080
+EXPOSE 4200
+
+WORKDIR /app
+COPY . .
+
+RUN npm install -g nx
+RUN npm install
+
+RUN nx build catalog --configuration=production
+
+CMD [ "nx", "serve", "catalog" ]

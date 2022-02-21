@@ -38,6 +38,15 @@ npm install -g nx
 # Install workspace dependencies
 npm install
 
+# Create a file at the root of your local repo called .env.local.
+# Add the following environment variables to it. This set the API
+# endpoint of the GraphQL server for your local builds.
+# Note: This file should not be checked into git. It is already
+# added to .gitignore.
+#
+# NX_API_PORT=3333
+# NX_API_URL=http://localhost:3333
+
 # Run the web app and the GraphQL back-end
 nx run-many --target=serve --all
 ```
@@ -71,18 +80,24 @@ Docker build should be done in a freshly cloned repo to avoid copying of `dist`,
 git clone https://github.com/nareshbhatia/proshop-nx.git proshop-nx-docker
 cd proshop-nx-docker
 
+# Optional: Cache the node docker image for faster builds
+docker pull node:16.14.0-alpine
+
 # Build docker images
 docker build -f Dockerfile.api -t nareshbhatia/proshop-api:1.0.0 .
+docker build -f Dockerfile.catalog -t nareshbhatia/catalog:1.0.0 .
 
 # Verify that the images were created on the local machine
 docker images -a
 
 # Run the images locally to make sure everything works
 docker run -d --rm --name proshop-api -p 8080:8080 nareshbhatia/proshop-api:1.0.0
+docker run -d --rm --name catalog -p 4200:4200 nareshbhatia/catalog:1.0.0
 
 # Push the images to Docker Hub
 docker login -u nareshbhatia --password-stdin
 docker push nareshbhatia/proshop-api
+docker push nareshbhatia/catalog
 ```
 
 ## Help

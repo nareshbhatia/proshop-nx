@@ -1,9 +1,7 @@
 import { ApolloClient, InMemoryCache } from '@apollo/client';
 
-// TODO: Remove hard coded URL
-// ApolloClient does not accept a relative URL like /api
 export const apolloClient = new ApolloClient({
-  uri: 'http://localhost:3333',
+  uri: process.env.NX_API_URL,
   cache: new InMemoryCache(),
   defaultOptions: {
     watchQuery: {
