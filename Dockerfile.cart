@@ -1,7 +1,7 @@
 FROM node:16.14.0-alpine
 
 # Note that we will specify NX_API_URL on the command line
-EXPOSE 4200
+EXPOSE 4201
 
 WORKDIR /app
 COPY . .
@@ -9,6 +9,6 @@ COPY . .
 RUN npm install -g nx
 RUN npm install
 
-RUN nx build catalog --configuration=production
+RUN nx build cart --configuration=production
 
-CMD [ "nx", "serve", "catalog" ]
+CMD [ "nx", "serve", "cart" ]

@@ -31,6 +31,27 @@ deployed at two different ports:
 
 ## Development Build
 
+Clone a fresh copy of the repo:
+
+```sh
+git clone https://github.com/nareshbhatia/proshop-nx.git
+cd proshop-nx
+```
+
+Create environment variables for local development. To do this,
+create a file at the root of your repo called `.env.local` and
+add the following variables to it.
+
+```
+NX_API_PORT=3333
+NX_API_URL=http://localhost:3333
+```
+
+> Note: This file should not be checked into git. It is already
+> added to .gitignore.
+
+Now follow the steps below:
+
 ```sh
 # For a better developer experience, install the Nx CLI globally
 npm install -g nx
@@ -38,16 +59,7 @@ npm install -g nx
 # Install workspace dependencies
 npm install
 
-# Create a file at the root of your local repo called .env.local.
-# Add the following environment variables to it. This set the API
-# endpoint of the GraphQL server for your local builds.
-# Note: This file should not be checked into git. It is already
-# added to .gitignore.
-#
-# NX_API_PORT=3333
-# NX_API_URL=http://localhost:3333
-
-# Run the web app and the GraphQL back-end
+# Run the web apps and the GraphQL back-end
 nx run-many --target=serve --all
 ```
 
@@ -86,18 +98,39 @@ docker pull node:16.14.0-alpine
 # Build docker images
 docker build -f Dockerfile.api -t nareshbhatia/proshop-api:1.0.0 .
 docker build -f Dockerfile.catalog -t nareshbhatia/catalog:1.0.0 .
+docker build -f Dockerfile.cart -t nareshbhatia/cart:1.0.0 .
 
 # Verify that the images were created on the local machine
 docker images -a
 
-# Run the images locally to make sure everything works
+# Find your machine's IP address on the local network
+# (not the external Internet address). For the commands
+# below, we will use 192.168.86.247, please replace it
+# with yours.
+ipconfig getifaddr en1 # for Mac
+ipconfig /all          # for Windows
+
+# Note that this is a hack for catalog and cart containers to
+# hit the GraphQL API. Connecting to http:localhost:8080 from
+# within the container gives an ECONNREFUSED error! Docker's
+# networking does not understand that we are referring to the
+# machine's localhost and not the container's localhost. Anyway,
+# this hack is ok for now, because we are simply trying to make
+# sure that the Docker images are good.
+
+# Run the images locally to make sure everything works. Replace
+# 192.168.86.247 with you local IP address. Launch the catalog
+# and cart apps in your browser (ports 4200 & 4201) and make
+# sure they work.
 docker run -d --rm --name proshop-api -p 8080:8080 nareshbhatia/proshop-api:1.0.0
-docker run -d --rm --name catalog -p 4200:4200 nareshbhatia/catalog:1.0.0
+docker run -d --rm --name catalog -p 4200:4200 -e NX_API_URL=http://192.168.86.247:8080 nareshbhatia/catalog:1.0.0
+docker run -d --rm --name cart -p 4201:4201 -e NX_API_URL=http://192.168.86.247:8080 nareshbhatia/cart:1.0.0
 
 # Push the images to Docker Hub
 docker login -u nareshbhatia --password-stdin
 docker push nareshbhatia/proshop-api
 docker push nareshbhatia/catalog
+docker push nareshbhatia/cart
 ```
 
 ## Help
