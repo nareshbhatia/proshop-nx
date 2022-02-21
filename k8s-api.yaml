@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: proshop-api-deployment
+  labels:
+    app: proshop-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: proshop-api
+  template:
+    metadata:
+      labels:
+        app: proshop-api
+    spec:
+      containers:
+      - name: proshop-api
+        image: nareshbhatia/proshop-api:1.0.0
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: proshop-api-service
+spec:
+  selector:
+    app: proshop-api
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080

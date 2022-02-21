@@ -84,6 +84,9 @@ nx run-many --target=serve --all --configuration=production
 
 ## Building Docker images
 
+> Note: If you have not installed Docker Desktop, install it now.
+> See instructions [here](https://www.docker.com/get-started).
+
 Docker build should be done in a freshly cloned repo to avoid copying of `dist`,
 `node_modules` etc.
 
@@ -132,6 +135,37 @@ docker push nareshbhatia/proshop-api:1.0.0
 docker push nareshbhatia/catalog:1.0.0
 docker push nareshbhatia/cart:1.0.0
 ```
+
+## Running ProShop on a Kubernetes cluster
+
+> Note: If you have not installed minikube, install it now.
+> See instructions [here](https://minikube.sigs.k8s.io/docs/start/).
+> Also you should have installed Docker Desktop (see instructions above).
+
+- Start minikube
+
+```sh
+minikube start --driver docker
+```
+
+- Now apply YAML files to the minikube instance to deploy Proshop components:
+
+```sh
+kubectl apply -f k8s-api-config.yaml # ConfigMap
+kubectl apply -f k8s-api.yaml        # API deployment & service
+kubectl apply -f k8s-catalog.yaml    # Catalog app deployment & service
+kubectl apply -f k8s-cart.yaml       # Cart app deployment & service
+```
+
+You can now run apps inside minikube:
+
+```sh
+minikube service catalog-service # terminal 1
+minikube service cart-service    # terminal 2
+```
+
+Note that the terminals need to remain open for the webapp to run.
+Control-C will stop the respective app.
 
 ## Help
 

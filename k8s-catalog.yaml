@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: catalog-deployment
+  labels:
+    app: catalog
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: catalog
+  template:
+    metadata:
+      labels:
+        app: catalog
+    spec:
+      containers:
+      - name: catalog
+        image: nareshbhatia/catalog:1.0.0
+        ports:
+        - containerPort: 4200
+        env:
+        - name: NX_API_URL
+          valueFrom:
+            configMapKeyRef:
+              name: proshop-api-config
+              key: proshop-api-url
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: catalog-service
+spec:
+  type: NodePort
+  selector:
+    app: catalog
+  ports:
+    - protocol: TCP
+      port: 4200
+      targetPort: 4200
+      nodePort: 30200
