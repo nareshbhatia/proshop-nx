@@ -1,10 +1,10 @@
-import { Order } from '@proshop-nx/domain';
 import { DataSource } from 'apollo-datasource';
 import { v4 as uuidv4 } from 'uuid';
 import products from './data/products.json';
+import { RawOrder, RawOrderItem } from './models';
 
 const CART_ID = 1234;
-const cartItems = [];
+const cartItems: Array<RawOrderItem> = [];
 
 function findProduct(productId: string) {
   return products.find((product) => product.id === productId);
@@ -42,7 +42,13 @@ export class CartService extends DataSource {
   }
 
   addProductToCart(productId: string) {
-    const { price } = findProduct(productId);
+    const product = findProduct(productId);
+    if (!product) {
+      // could not find product, just return the cart
+      return { id: CART_ID, items: cartItems };
+    }
+
+    const { price } = product;
     const existingItem = findItem(productId);
     if (existingItem) {
       existingItem.quantity++;
@@ -67,7 +73,13 @@ export class CartService extends DataSource {
   }
 
   updateProductQuantityInCart(productId: string, quantity: number) {
-    const { price } = findProduct(productId);
+    const product = findProduct(productId);
+    if (!product) {
+      // could not find product, just return the cart
+      return { id: CART_ID, items: cartItems };
+    }
+
+    const { price } = product;
     const existingItem = findItem(productId);
     if (existingItem) {
       existingItem.quantity = quantity;
@@ -80,7 +92,7 @@ export class CartService extends DataSource {
     cartItems.length = 0;
   }
 
-  createOrderFromCart(): Order {
+  createOrderFromCart(): RawOrder {
     return {
       id: uuidv4(),
       createdAt: new Date().toISOString(),

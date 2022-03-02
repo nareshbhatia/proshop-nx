@@ -1,7 +1,7 @@
 import { DataSource } from 'apollo-datasource';
-import { Order } from '@proshop-nx/domain';
+import { RawOrder } from './models';
 
-const orders: Array<Order> = [];
+const orders: Array<RawOrder> = [];
 
 export class OrderService extends DataSource {
   constructor() {
@@ -14,7 +14,7 @@ export class OrderService extends DataSource {
     return orders;
   }
 
-  addOrder(order: Order) {
+  addOrder(order: RawOrder) {
     orders.push(order);
   }
 }
