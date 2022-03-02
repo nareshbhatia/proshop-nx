@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react';
 
-import CategoryList from './CategoryList';
+import { CategoryList } from './CategoryList';
 
 describe('CategoryList', () => {
   it('should render successfully', () => {

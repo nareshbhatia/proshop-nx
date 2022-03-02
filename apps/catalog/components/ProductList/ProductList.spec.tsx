@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react';
 
-import ProductList from './ProductList';
+import { ProductList } from './ProductList';
 
 describe('ProductList', () => {
   it('should render successfully', () => {
