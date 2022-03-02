@@ -9,7 +9,7 @@ import MenuItem from '@mui/material/MenuItem';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import Typography from '@mui/material/Typography';
 import { OrderItem } from '@proshop-nx/domain';
-import { NumberUtils } from '@react-force/number-utils';
+import { NumberUtils } from '@proshop-nx/number-utils';
 import { useRouter } from 'next/router';
 
 // xs, extra-small: 0px

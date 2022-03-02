@@ -4,7 +4,7 @@ import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import { Product } from '@proshop-nx/domain';
-import { NumberUtils } from '@react-force/number-utils';
+import { NumberUtils } from '@proshop-nx/number-utils';
 
 const AddProductToCart = gql`
   mutation AddProductToCart($productId: ID!) {

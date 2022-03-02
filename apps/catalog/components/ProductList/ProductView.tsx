@@ -6,7 +6,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { useRouter } from 'next/router';
 import { Product } from '@proshop-nx/domain';
-import { NumberUtils } from '@react-force/number-utils';
+import { NumberUtils } from '@proshop-nx/number-utils';
 
 export interface ProductViewProps {
   product: Product;

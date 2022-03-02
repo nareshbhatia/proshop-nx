@@ -16,6 +16,7 @@
     "baseUrl": ".",
     "paths": {
       "@proshop-nx/domain": ["libs/domain/src/index.ts"],
+      "@proshop-nx/number-utils": ["libs/number-utils/src/index.ts"],
       "@proshop-nx/ui-lib": ["libs/ui-lib/src/index.ts"]
     }
   },

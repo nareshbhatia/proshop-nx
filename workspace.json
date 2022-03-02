@@ -6,6 +6,7 @@
     "catalog": "apps/catalog",
     "catalog-e2e": "apps/catalog-e2e",
     "domain": "libs/domain",
+    "number-utils": "libs/number-utils",
     "proshop-api": "apps/proshop-api",
     "ui-lib": "libs/ui-lib"
   }

@@ -4,7 +4,7 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { Cart } from '@proshop-nx/domain';
-import { NumberUtils } from '@react-force/number-utils';
+import { NumberUtils } from '@proshop-nx/number-utils';
 import { useRouter } from 'next/router';
 
 const PlaceOrderFromCart = gql`
