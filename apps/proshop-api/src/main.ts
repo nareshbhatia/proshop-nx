@@ -11,8 +11,9 @@ async function startApolloServer() {
   ).toString('utf-8');
 
   // start apollo server
+  const port = process.env.NX_API_PORT || 8080;
   const server = new ApolloServer({ typeDefs, resolvers, dataSources });
-  const { url } = await server.listen({ port: process.env.NX_API_PORT });
+  const { url } = await server.listen({ port });
 
   console.log(`ProShop API ready at ${url}`);
 }
