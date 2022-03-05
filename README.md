@@ -43,8 +43,8 @@ create a file at the root of your repo called `.env.local` and
 add the following variables to it.
 
 ```
-NX_API_PORT=3333
-NX_API_URL=http://localhost:3333
+NX_API_PORT=8080
+NX_API_URL=http://localhost:8080
 ```
 
 > Note: This file should not be checked into git. It is already
@@ -65,8 +65,8 @@ nx run-many --target=serve --all
 
 Open two tabs in your browser and point them to the following URLs:
 
-1. http://localhost:4200/: Catalog app home page.
-2. http://localhost:4201/: Cart app home page.
+1. http://localhost:3001/: Catalog app home page
+2. http://localhost:3002/: Cart app home page
 
 ## Production Build
 
@@ -99,9 +99,9 @@ cd proshop-nx-docker
 docker pull node:16.14.0-alpine
 
 # Build docker images
-docker build -f Dockerfile.api -t nareshbhatia/proshop-api:1.0.0 .
-docker build -f Dockerfile.catalog -t nareshbhatia/catalog:1.0.0 .
-docker build -f Dockerfile.cart -t nareshbhatia/cart:1.0.0 .
+docker build -f infrastructure/Dockerfile.api -t nareshbhatia/proshop-api:1.0.1 .
+docker build -f infrastructure/Dockerfile.catalog -t nareshbhatia/catalog:1.0.1 .
+docker build -f infrastructure/Dockerfile.cart -t nareshbhatia/cart:1.0.1 .
 
 # Verify that the images were created on the local machine
 docker images -a
@@ -123,17 +123,17 @@ ipconfig /all          # for Windows
 
 # Run the images locally to make sure everything works. Replace
 # 192.168.86.247 with you local IP address. Launch the catalog
-# and cart apps in your browser (ports 4200 & 4201) and make
+# and cart apps in your browser (ports 3001 & 3002) and make
 # sure they work.
-docker run -d --rm --name proshop-api -p 8080:8080 nareshbhatia/proshop-api:1.0.0
-docker run -d --rm --name catalog -p 4200:4200 -e NX_API_URL=http://192.168.86.247:8080 nareshbhatia/catalog:1.0.0
-docker run -d --rm --name cart -p 4201:4201 -e NX_API_URL=http://192.168.86.247:8080 nareshbhatia/cart:1.0.0
+docker run -d --rm --name proshop-api -p 8080:8080 nareshbhatia/proshop-api:1.0.1
+docker run -d --rm --name catalog -p 3001:3001 -e NX_API_URL=http://192.168.86.247:8080 nareshbhatia/catalog:1.0.1
+docker run -d --rm --name cart -p 3002:3002 -e NX_API_URL=http://192.168.86.247:8080 nareshbhatia/cart:1.0.1
 
 # Push the images to Docker Hub
 docker login -u nareshbhatia --password-stdin
-docker push nareshbhatia/proshop-api:1.0.0
-docker push nareshbhatia/catalog:1.0.0
-docker push nareshbhatia/cart:1.0.0
+docker push nareshbhatia/proshop-api:1.0.1
+docker push nareshbhatia/catalog:1.0.1
+docker push nareshbhatia/cart:1.0.1
 ```
 
 ## Running ProShop on a Kubernetes cluster
@@ -151,10 +151,10 @@ minikube start --driver docker
 - Now apply YAML files to the minikube instance to deploy Proshop components:
 
 ```sh
-kubectl apply -f k8s-api-config.yaml # ConfigMap
-kubectl apply -f k8s-api.yaml        # API deployment & service
-kubectl apply -f k8s-catalog.yaml    # Catalog app deployment & service
-kubectl apply -f k8s-cart.yaml       # Cart app deployment & service
+kubectl apply -f infrastructure/k8s-api-config.yaml # ConfigMap
+kubectl apply -f infrastructure/k8s-api.yaml        # API deployment & service
+kubectl apply -f infrastructure/k8s-catalog.yaml    # Catalog app deployment & service
+kubectl apply -f infrastructure/k8s-cart.yaml       # Cart app deployment & service
 ```
 
 You can now run apps inside minikube:

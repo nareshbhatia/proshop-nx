@@ -20,7 +20,7 @@
       "options": {
         "buildTarget": "cart:build",
         "dev": true,
-        "port": 4201
+        "port": 3002
       },
       "configurations": {
         "production": {

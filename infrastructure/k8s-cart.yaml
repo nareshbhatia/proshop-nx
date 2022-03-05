@@ -1,24 +1,24 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: catalog-deployment
+  name: cart-deployment
   labels:
-    app: catalog
+    app: cart
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: catalog
+      app: cart
   template:
     metadata:
       labels:
-        app: catalog
+        app: cart
     spec:
       containers:
-      - name: catalog
-        image: nareshbhatia/catalog:1.0.0
+      - name: cart
+        image: nareshbhatia/cart:1.0.0
         ports:
-        - containerPort: 4200
+        - containerPort: 3002
         env:
         - name: NX_API_URL
           valueFrom:
@@ -29,13 +29,13 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: catalog-service
+  name: cart-service
 spec:
   type: NodePort
   selector:
-    app: catalog
+    app: cart
   ports:
     - protocol: TCP
-      port: 4200
-      targetPort: 4200
-      nodePort: 30200
+      port: 3002
+      targetPort: 3002
+      nodePort: 30002
