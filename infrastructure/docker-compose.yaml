@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  proshop-proxy:
+    image: nareshbhatia/proshop-nx-proxy:1.0.0
+    ports:
+      - '80:80'
+    depends_on:
+      - proshop-catalog
+      - proshop-cart
+    environment:
+      - CATALOG_URL=http://proshop-catalog:3001
+      - CART_URL=http://proshop-cart:3002
+
+  proshop-catalog:
+    image: nareshbhatia/proshop-nx-catalog:1.0.0
+    ports:
+      - '3001:3001'
+    depends_on:
+      - proshop-api
+    environment:
+      - NX_API_URL=http://proshop-api:8080
+
+  proshop-cart:
+    image: nareshbhatia/proshop-nx-cart:1.0.0
+    ports:
+      - '3002:3002'
+    depends_on:
+      - proshop-api
+    environment:
+      - NX_API_URL=http://proshop-api:8080
+
+  proshop-api:
+    image: nareshbhatia/proshop-nx-api:1.0.0
+    ports:
+      - '8080:8080'

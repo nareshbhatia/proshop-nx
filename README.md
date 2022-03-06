@@ -38,17 +38,16 @@ git clone https://github.com/nareshbhatia/proshop-nx.git
 cd proshop-nx
 ```
 
-Create environment variables for local development. To do this,
-create a file at the root of your repo called `.env.local` and
-add the following variables to it.
+Create environment variables for local development. To do this, create a file at
+the root of your repo called `.env.local` and add the following variables to it.
 
 ```
 NX_API_PORT=8080
 NX_API_URL=http://localhost:8080
 ```
 
-> Note: This file should not be checked into git. It is already
-> added to .gitignore.
+> Note: This file should not be checked into git. It is already added to
+> .gitignore.
 
 Now follow the steps below:
 
@@ -65,8 +64,8 @@ nx run-many --target=serve --all
 
 Open two tabs in your browser and point them to the following URLs:
 
-1. http://localhost:3001/: Catalog app home page
-2. http://localhost:3002/: Cart app home page
+1. http://localhost:3001/catalog: Catalog app home page
+2. http://localhost:3002/cart: Cart app home page
 
 ## Production Build
 
@@ -82,65 +81,92 @@ Then run the app in production mode:
 nx run-many --target=serve --all --configuration=production
 ```
 
+Open two tabs in your browser and point them to the following URLs:
+
+1. http://localhost:3001/catalog: Catalog app home page
+2. http://localhost:3002/cart: Cart app home page
+
 ## Building Docker images
 
-> Note: If you have not installed Docker Desktop, install it now.
-> See instructions [here](https://www.docker.com/get-started).
+> Note: If you have not installed Docker Desktop, install it now. See
+> instructions [here](https://www.docker.com/get-started).
 
-Docker build should be done in a freshly cloned repo to avoid copying of `dist`,
-`node_modules` etc.
+Find your machine's IP address on the local network (not the external Internet
+address). For the instructions below, we will use 192.168.86.247 as the IP
+address, please replace it with yours when you run through these steps.
+
+> Note that this is a hack for catalog and cart containers to hit the GraphQL
+> API and for the reverse-proxy to hit catalog and cart apps. Connecting to
+> http:localhost from within the containers gives an ECONNREFUSED error!
+> Docker's networking does not understand that we are referring to the machine's
+> localhost and not the container's localhost.
 
 ```sh
-# Clone a fresh copy of the repo
-git clone https://github.com/nareshbhatia/proshop-nx.git proshop-nx-docker
-cd proshop-nx-docker
+ipconfig getifaddr en1 # for Mac
+ipconfig /all          # for Windows
+```
 
-# Optional: Cache the node docker image for faster builds
-docker pull node:16.14.0-alpine
+Before building docker images, edit `proxy/default.conf` and replace
+`192.168.86.247` with your machine's IP address.
 
+Now follow the steps below:
+
+```sh
 # Build docker images
-docker build -f infrastructure/Dockerfile.api -t nareshbhatia/proshop-api:1.0.1 .
-docker build -f infrastructure/Dockerfile.catalog -t nareshbhatia/catalog:1.0.1 .
-docker build -f infrastructure/Dockerfile.cart -t nareshbhatia/cart:1.0.1 .
+docker build -f infrastructure/Dockerfile.api -t nareshbhatia/proshop-nx-api:1.0.0 .
+docker build -f infrastructure/Dockerfile.catalog -t nareshbhatia/proshop-nx-catalog:1.0.0 .
+docker build -f infrastructure/Dockerfile.cart -t nareshbhatia/proshop-nx-cart:1.0.0 .
+docker build -f infrastructure/Dockerfile.proxy -t nareshbhatia/proshop-nx-proxy:1.0.0 .
 
 # Verify that the images were created on the local machine
 docker images -a
 
-# Find your machine's IP address on the local network
-# (not the external Internet address). For the commands
-# below, we will use 192.168.86.247, please replace it
-# with yours.
-ipconfig getifaddr en1 # for Mac
-ipconfig /all          # for Windows
-
-# Note that this is a hack for catalog and cart containers to
-# hit the GraphQL API. Connecting to http:localhost:8080 from
-# within the container gives an ECONNREFUSED error! Docker's
-# networking does not understand that we are referring to the
-# machine's localhost and not the container's localhost. Anyway,
-# this hack is ok for now, because we are simply trying to make
-# sure that the Docker images are good.
-
-# Run the images locally to make sure everything works. Replace
-# 192.168.86.247 with you local IP address. Launch the catalog
-# and cart apps in your browser (ports 3001 & 3002) and make
-# sure they work.
-docker run -d --rm --name proshop-api -p 8080:8080 nareshbhatia/proshop-api:1.0.1
-docker run -d --rm --name catalog -p 3001:3001 -e NX_API_URL=http://192.168.86.247:8080 nareshbhatia/catalog:1.0.1
-docker run -d --rm --name cart -p 3002:3002 -e NX_API_URL=http://192.168.86.247:8080 nareshbhatia/cart:1.0.1
-
-# Push the images to Docker Hub
-docker login -u nareshbhatia --password-stdin
-docker push nareshbhatia/proshop-api:1.0.1
-docker push nareshbhatia/catalog:1.0.1
-docker push nareshbhatia/cart:1.0.1
+# Run the images
+docker run -d --name proshop-nx-api -p 8080:8080 nareshbhatia/proshop-nx-api:1.0.0
+docker run -d --name proshop-nx-catalog -p 3001:3001 -e NX_API_URL=http://192.168.86.247:8080 nareshbhatia/proshop-nx-catalog:1.0.0
+docker run -d --name proshop-nx-cart -p 3002:3002 -e NX_API_URL=http://192.168.86.247:8080 nareshbhatia/proshop-nx-cart:1.0.0
+docker run -d --name proshop-nx-proxy -p 80:80 -e CATALOG_URL=http://192.168.86.247:3001/catalog -e CART_URL=http://192.168.86.247:3001/cart nareshbhatia/proshop-nx-proxy:1.0.0
 ```
 
-## Running ProShop on a Kubernetes cluster
+Run the application by hitting the reverse proxy at http://localhost/catalog.
+You should be able to navigate from the catalog to the cart and back.
 
-> Note: If you have not installed minikube, install it now.
-> See instructions [here](https://minikube.sigs.k8s.io/docs/start/).
-> Also you should have installed Docker Desktop (see instructions above).
+If all this works push your images to Docker Hub
+
+```sh
+docker login -u nareshbhatia --password-stdin
+docker push nareshbhatia/proshop-nx-api:1.0.0
+docker push nareshbhatia/proshop-nx-catalog:1.0.0
+docker push nareshbhatia/proshop-nx-cart:1.0.0
+docker push nareshbhatia/proshop-nx-proxy:1.0.0
+```
+
+## Running ProShop using Docker Compose
+
+> Note: In the current setup, the client-side is not able to access Proshop API.
+> Cart icon will not show up, and also you can't add items to the cart. (See
+> issue #1).
+
+```sh
+docker-compose -f infrastructure/docker-compose.yaml up --detach
+```
+
+Run the application by hitting the reverse proxy at http://localhost/catalog.
+You should be able to navigate from the catalog to the cart and back.
+
+After testing, you can shut down Docker Compose using the command below:
+
+```sh
+docker-compose -f infrastructure/docker-compose.yaml down
+```
+
+## Running ProShop in a Kubernetes cluster
+
+> Note: This does not work currently.
+
+> Note: If you have not installed minikube, install it now. See instructions
+> [here](https://minikube.sigs.k8s.io/docs/start/). Also you should have
+> installed Docker Desktop (see instructions above).
 
 - Start minikube
 
@@ -164,8 +190,8 @@ minikube service catalog-service # terminal 1
 minikube service cart-service    # terminal 2
 ```
 
-Note that the terminals need to remain open for the webapp to run.
-Control-C will stop the respective app.
+Note that the terminals need to remain open for the webapp to run. Control-C
+will stop the respective app.
 
 ## Help
 

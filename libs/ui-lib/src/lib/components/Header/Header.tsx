@@ -8,10 +8,10 @@ import InputBase from '@mui/material/InputBase';
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import { useRouter } from 'next/router';
 import { CartCount } from './CartCount';
 import { DrawerList } from './DrawerList';
+import { getLinks } from '../../utils/getLinks';
+import { Link } from '../Link';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -55,7 +55,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 export function Header() {
   const [drawerOpen, setDrawerOpen] = React.useState(false);
-  const router = useRouter();
+  const { hrefCatalog, hrefCart } = getLinks();
 
   const handleDrawerToggle = () => {
     setDrawerOpen(!drawerOpen);
@@ -75,15 +75,16 @@ export function Header() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography
+          <Link
+            href={hrefCatalog}
             variant="h6"
+            color="primary.contrastText"
+            underline="none"
+            sx={{ display: { xs: 'none', sm: 'block' } }}
             noWrap
-            component="div"
-            sx={{ display: { xs: 'none', sm: 'block', cursor: 'pointer' } }}
-            onClick={() => router.push('/')}
           >
             ProShop
-          </Typography>
+          </Link>
           <Search>
             <SearchIconWrapper>
               <SearchIcon />
@@ -94,7 +95,7 @@ export function Header() {
             />
           </Search>
           <Box sx={{ flexGrow: 1 }} />
-          <CartCount />
+          <CartCount hrefCart={hrefCart} />
         </Toolbar>
       </AppBar>
       <Drawer open={drawerOpen} onClose={handleDrawerToggle}>

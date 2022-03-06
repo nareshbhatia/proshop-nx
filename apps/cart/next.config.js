@@ -5,6 +5,11 @@ const withNx = require('@nrwl/next/plugins/with-nx');
  * @type {import('@nrwl/next/plugins/with-nx').WithNxOptions}
  **/
 const nextConfig = {
+  basePath: '/cart',
+  publicRuntimeConfig: {
+    hrefCatalog: 'http://proshop.com/catalog',
+    hrefCart: '/',
+  },
   nx: {
     // Set this to true if you would like to to use SVGR
     // See: https://github.com/gregberge/svgr

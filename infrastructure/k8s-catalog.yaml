@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: catalog
-        image: nareshbhatia/catalog:1.0.0
+        image: nareshbhatia/proshop-nx-catalog:1.0.0
         ports:
         - containerPort: 3001
         env:

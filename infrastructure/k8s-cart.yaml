@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: cart
-        image: nareshbhatia/cart:1.0.0
+        image: nareshbhatia/proshop-nx-cart:1.0.0
         ports:
         - containerPort: 3002
         env:

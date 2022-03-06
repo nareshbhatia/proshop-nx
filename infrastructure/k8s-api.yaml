@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: proshop-api
-        image: nareshbhatia/proshop-api:1.0.0
+        image: nareshbhatia/proshop-nx-api:1.0.0
         ports:
         - containerPort: 8080
 ---
