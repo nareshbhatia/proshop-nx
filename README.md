@@ -18,8 +18,8 @@ A sample eCommerce app to show best practices in web development using Nx.
 
 ![Architecture](assets/architecture.png)
 
-The ProShop app consists of two micro-apps (catalog and cart) sitting behind a
-_reverse proxy_. The reverse proxy accepts requests from external clients and
+The ProShop app consists of two micro-apps (Catalog and Cart) sitting behind a
+_Reverse Proxy_. The reverse proxy accepts requests from external clients and
 depending on the request path, directs them to one of the two micro-apps. Thus,
 the two micro-apps give the appearance of a single cohesive web app.
 
@@ -27,11 +27,11 @@ The **Catalog App** displays the product catalog and allows the user to add
 products to the cart.
 
 The **Cart App** displays the cart and allows the user to manage it, i.e. add,
-delete and update items). Once the user is happy with the cart, they can place
+delete and update items. Once the user is happy with the cart, they can place
 an order. (Note that this is a very simplified checkout process - there is no
 provision for collecting shipping and/or payment information.)
 
-- Both micro-apps talk to a GraphQL API called the `proshop-api`.
+- Both micro-apps talk to a GraphQL API called the Proshop API.
 - Both micro-apps share a common UI library called `ui-lib`.
 
 ## Development Build
