@@ -27,8 +27,8 @@ The **Catalog App** displays the product catalog and allows the user to add
 products to the cart.
 
 The **Cart App** displays the cart and allows the user to manage it, i.e. add,
-delete and update items. Once the user is happy with the cart, they can place
-an order. (Note that this is a very simplified checkout process - there is no
+delete and update items. Once the user is happy with the cart, they can place an
+order. (Note that this is a very simplified checkout process - there is no
 provision for collecting shipping and/or payment information.)
 
 - Both micro-apps talk to a GraphQL API called the Proshop API.
@@ -91,50 +91,32 @@ Open two tabs in your browser and point them to the following URLs:
 1. http://localhost:3001/catalog: Catalog app home page
 2. http://localhost:3002/cart: Cart app home page
 
-## Building Docker images
+## Running ProShop using Docker Compose
 
 > Note: If you have not installed Docker Desktop, install it now. See
 > instructions [here](https://www.docker.com/get-started).
-
-Find your machine's IP address on the local network (not the external Internet
-address). For the instructions below, we will use 192.168.86.247 as the IP
-address, please replace it with yours when you run through these steps.
-
-> Note that this is a hack for catalog and cart containers to hit the GraphQL
-> API and for the reverse-proxy to hit catalog and cart apps. Connecting to
-> http:localhost from within the containers gives an ECONNREFUSED error!
-> Docker's networking does not understand that we are referring to the machine's
-> localhost and not the container's localhost.
-
-```sh
-ipconfig getifaddr en1 # for Mac
-ipconfig /all          # for Windows
-```
-
-Before building docker images, edit `proxy/default.conf` and replace
-`192.168.86.247` with your machine's IP address.
-
-Now follow the steps below:
 
 ```sh
 # Build docker images
 docker build -f infrastructure/Dockerfile.api -t nareshbhatia/proshop-nx-api:1.0.0 .
 docker build -f infrastructure/Dockerfile.catalog -t nareshbhatia/proshop-nx-catalog:1.0.0 .
 docker build -f infrastructure/Dockerfile.cart -t nareshbhatia/proshop-nx-cart:1.0.0 .
-docker build -f infrastructure/Dockerfile.proxy -t nareshbhatia/proshop-nx-proxy:1.0.0 .
 
 # Verify that the images were created on the local machine
 docker images -a
 
-# Run the images
-docker run -d --name proshop-nx-api -p 8080:8080 nareshbhatia/proshop-nx-api:1.0.0
-docker run -d --name proshop-nx-catalog -p 3001:3001 -e NX_API_URL=http://192.168.86.247:8080 nareshbhatia/proshop-nx-catalog:1.0.0
-docker run -d --name proshop-nx-cart -p 3002:3002 -e NX_API_URL=http://192.168.86.247:8080 nareshbhatia/proshop-nx-cart:1.0.0
-docker run -d --name proshop-nx-proxy -p 80:80 -e CATALOG_URL=http://192.168.86.247:3001/catalog -e CART_URL=http://192.168.86.247:3001/cart nareshbhatia/proshop-nx-proxy:1.0.0
+# Run images using Docker Compose
+docker-compose -f infrastructure/docker-compose.yaml up --detach
 ```
 
-Run the application by hitting the reverse proxy at http://localhost/catalog.
-You should be able to navigate from the catalog to the cart and back.
+Point your browser to the reverse proxy at http://localhost/catalog. You should
+be able to navigate from catalog to cart and back.
+
+After testing, you can shut down Docker Compose using the command below:
+
+```sh
+docker-compose -f infrastructure/docker-compose.yaml down
+```
 
 If all this works push your images to Docker Hub
 
@@ -143,26 +125,6 @@ docker login -u nareshbhatia --password-stdin
 docker push nareshbhatia/proshop-nx-api:1.0.0
 docker push nareshbhatia/proshop-nx-catalog:1.0.0
 docker push nareshbhatia/proshop-nx-cart:1.0.0
-docker push nareshbhatia/proshop-nx-proxy:1.0.0
-```
-
-## Running ProShop using Docker Compose
-
-> Note: In the current setup, the client-side is not able to access Proshop API.
-> Cart icon will not show up, and also you can't add items to the cart. (See
-> issue #1).
-
-```sh
-docker-compose -f infrastructure/docker-compose.yaml up --detach
-```
-
-Run the application by hitting the reverse proxy at http://localhost/catalog.
-You should be able to navigate from the catalog to the cart and back.
-
-After testing, you can shut down Docker Compose using the command below:
-
-```sh
-docker-compose -f infrastructure/docker-compose.yaml down
 ```
 
 ## Running ProShop in a Kubernetes cluster

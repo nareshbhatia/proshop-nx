@@ -1,7 +1,12 @@
 import { ApolloClient, InMemoryCache } from '@apollo/client';
 
 export const apolloClient = new ApolloClient({
-  uri: process.env.NX_API_URL,
+  // Specify URL based on where we are running - client or server side
+  // See https://github.com/vercel/next.js/issues/5354#issuecomment-520305040
+  uri:
+    typeof window === 'undefined'
+      ? process.env.NX_SERVER_SIDE_API_URL
+      : process.env.NX_CLIENT_SIDE_API_URL,
   cache: new InMemoryCache(),
   defaultOptions: {
     watchQuery: {
